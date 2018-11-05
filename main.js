@@ -1,5 +1,5 @@
-(updateView)
+$(updateView)
 
 function updateView() {
-    alert("Using jQuery!")
+  alert('Sweet Potatoes, lotsa sweet potatoes')
 }
