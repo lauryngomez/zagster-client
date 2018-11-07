@@ -1,3 +1,5 @@
+// http://tinyurl.com/cs160nov05
+
 const BASE_URL = "http://zagster-service.herokuapp.com"
 
 
