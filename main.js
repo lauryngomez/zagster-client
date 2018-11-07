@@ -1,6 +1,6 @@
 // http://tinyurl.com/cs160nov05
 
-const BASE_URL = "http://zagster-service.herokuapp.com"
+const BASE_URL = "https://zagster-service.herokuapp.com"
 
 
 $(updateView)
