@@ -3,14 +3,15 @@
     <head>
         <title>Zagster Bikes in Bend</title>
         <link rel="stylesheet" href="main.css" type="text/css">
-
+        <canvas id="myChart"></canvas>
         <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous">
         </script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
         <script src="main.js"></script>
+  
 
     </head>
     <body>
@@ -22,8 +23,33 @@
 
         <p>Total Rides</p>
 
-        <p> Rough draft sketch. <img id="rough_draft" src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/46289891_1115607001942096_577044734711693312_n.jpg?_nc_cat=100&_nc_ht=scontent-sea1-1.xx&oh=937a77260253884239b125c4f108257c&oe=5C82AAA9" width: 200px; > </p>
-
+        <p> Rough draft sketch.</p>
+        <p> <img id="rough_draft" src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/46289891_1115607001942096_577044734711693312_n.jpg?_nc_cat=100&_nc_ht=scontent-sea1-1.xx&oh=937a77260253884239b125c4f108257c&oe=5C82AAA9" > </p>
+        <script>var ctx = document.getElementById('myChart').getContext('2d');
+            var myRadarChart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'radar',
+            
+                // The data for our dataset
+                data: {
+                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                    datasets: [{
+                        label: "My First dataset",
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: [0, 10, 5, 2, 20, 30, 45],
+                    }]
+                },
+            
+                // Configuration options go here
+                options = {
+                     scale: {
+                      // Hides the scale
+                      display: false
+                 }
+                };
+            });</script>
 
     </body>
+
 </html>
