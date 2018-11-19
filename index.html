@@ -23,26 +23,29 @@
 
         <p>Total Rides</p>
 
-        <p> Rough draft sketch.</p>
-        <p> <img id="rough_draft" src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/46289891_1115607001942096_577044734711693312_n.jpg?_nc_cat=100&_nc_ht=scontent-sea1-1.xx&oh=937a77260253884239b125c4f108257c&oe=5C82AAA9" > </p>
         <script>var ctx = document.getElementById('myChart').getContext('2d');
-            var chart = new Chart(ctx, {
+            var myRadarChart = new Chart(ctx, {
                 // The type of chart we want to create
-                type: 'line',
+                type: 'radar',
             
                 // The data for our dataset
                 data: {
                     labels: ["January", "February", "March", "April", "May", "June", "July"],
                     datasets: [{
-                        label: "My First dataset",
+                        label: "columbia_simpson dataset",
                         backgroundColor: 'rgb(255, 99, 132)',
                         borderColor: 'rgb(255, 99, 132)',
-                        data: [0, 10, 5, 2, 20, 30, 45],
+                        data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                     }]
                 },
             
                 // Configuration options go here
-                options: {}
+                options: = {
+                    scale: {
+                        // hides the scale
+                        display: false
+                    }
+                };
             });
         </script>
 
