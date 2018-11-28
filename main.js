@@ -1,83 +1,83 @@
 const BASE_URL = "https://zagster-service.herokuapp.com"
 
-
 function updateView(data){
     console.log(data);
-var grc_to_columbia
-var grc_to_drake
-var grc_to_g5
-var grc_to_galveston
-var grc_to_grc
-var grc_to_mill
-var grc_to_osu
-var grc_to_ten_barrel
+    
+    
+    var grc_to_columbia
+    var grc_to_drake
+    var grc_to_g5
+    var grc_to_galveston
+    var grc_to_grc
+    var grc_to_mill
+    var grc_to_osu
+    var grc_to_ten_barrel
 
-var drake_to_drake
-var drake_to_g5
-var drake_to_galveston
-var drake_to_grc
-var drake_to_mill
-var drake_to_osu
-var drake_to_ten_barrel
-var drake_to_columbia
+    var drake_to_drake
+    var drake_to_g5
+    var drake_to_galveston
+    var drake_to_grc
+    var drake_to_mill
+    var drake_to_osu
+    var drake_to_ten_barrel
+    var drake_to_columbia
 
-var columbia_to_columbia
-var columbia_to_drake
-var columbia_to_g5
-var columbia_to_galveston
-var columbia_to_grc
-var columbia_to_mill
-var columbia_to_osu
-var columbia_to_ten_barrel
+    var columbia_to_columbia;
+    var columbia_to_drake;
+    var columbia_to_g5;
+    var columbia_to_galveston;
+    var columbia_to_grc;
+    var columbia_to_mill;
+    var columbia_to_osu;
+    var columbia_to_ten_barrel;
 
-var g5_to_columbia
-var g5_to_drake
-var g5_to_g5
-var g5_to_galveston
-var g5_to_grc
-var g5_to_mill
-var g5_to_osu
-var g5_to_ten_barrel
+    var g5_to_columbia;
+    var g5_to_drake;
+    var g5_to_g5;
+    var g5_to_galveston;
+    var g5_to_grc;
+    var g5_to_mill;
+    var g5_to_osu;
+    var g5_to_ten_barrel;
 
-var galveston_to_columbia
-var galveston_to_drake
-var galveston_to_g5
-var galveston_to_galveston
-var galveston_to_grc
-var galveston_to_mill
-var galveston_to_osu
-var galveston_to_ten_barrel
+    var galveston_to_columbia;
+    var galveston_to_drake;
+    var galveston_to_g5;
+    var galveston_to_galveston;
+    var galveston_to_grc;
+    var galveston_to_mill;
+    var galveston_to_osu;
+    var galveston_to_ten_barrel;
 
-var old_mill_to_columbia
-var old_mill_to_drake
-var old_mill_to_g5
-var old_mill_to_galveston
-var old_mill_to_grc
-var old_mill_to_mill
-var old_mill_to_osu
-var old_mill_to_ten_barrel
+    var old_mill_to_columbia;
+    var old_mill_to_drake;
+    var old_mill_to_g5;
+    var old_mill_to_galveston;
+    var old_mill_to_grc;
+    var old_mill_to_mill;
+    var old_mill_to_osu;
+    var old_mill_to_ten_barrel;
 
-var osu_to_columbia
-var osu_to_drake
-var osu_to_g5
-var osu_to_galveston
-var osu_to_grc
-var osu_to_mill
-var osu_to_osu
-var osu_to_ten_barrel
+    var osu_to_columbia;
+    var osu_to_drake;
+    var osu_to_g5;
+    var osu_to_galveston;
+    var osu_to_grc;
+    var osu_to_mill;
+    var osu_to_osu;
+    var osu_to_ten_barrel;
 
-var ten_barrel_to_columbia
-var ten_barrel_to_drake
-var ten_barrel_to_g5
-var ten_barrel_to_galveston
-var ten_barrel_to_grc
-var ten_barrel_to_mill
-var ten_barrel_to_osu
-var ten_barrel_to_ten_barrel
+    var ten_barrel_to_columbia;
+    var ten_barrel_to_drake;
+    var ten_barrel_to_g5;
+    var ten_barrel_to_galveston;
+    var ten_barrel_to_grc;
+    var ten_barrel_to_mill;
+    var ten_barrel_to_osu;
+    var ten_barrel_to_ten_barrel;
 
 
-var
-        //GRC
+//GRC
         function saveGrcToG5() {
             $.getJSON(BASE_URL + "/rides/count/from/grc/to/g5", saveGrcToG5);
         }
@@ -479,6 +479,7 @@ var
             $.getJSON(BASE_URL + "/rides/count/from/ten_barrel/to/osu_cascades", saveTenBarrelToOsu);
         }
         function saveTenBarrelToOsu(data){
+            console.log(data["count"])
             ten_barrel_to_osu = data.count
         }
 
@@ -595,10 +596,554 @@ var
 
 
 
+function displayColumbiaChart() {
+
+    var ColumbiaChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ["Columbia Simpson to Drake Park", "Columbia Simpson to Columbia Simpson", "Columbia Simpson to g5", "Columbia Simpson to Galveston", "Columbia Simpson to GRC", "Columbia Simpson to Old Mill", "Columbia Simpson to OSU Cascades", "Columbia Simpson to TenBarrel"],
+            datasets: [
+                {
+                    label: "Columbia Simpson to Columbia Simpson Dataset", 
+                    backgroundColor: 'rgb(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(225, 99, 132)',
+                    data: [columbia_to_columbia],
+                },
+                {
+                    label: "Columbia to Drake Park Dataset", 
+                    backgroundColor: 'rgb(200, 50, 50, 0.2)',
+                    borderColor: 'rgb(200, 50, 50)',
+                    pointBackgroundColor: 'rgb(200, 50, 50)',
+                    data: [columbia_to_drake],
+                },
+                {
+                    label: "Columbia to g5 Dataset", 
+                    backgroundColor: 'rgb(100, 50, 132, 0.2)',
+                    borderColor: 'rgb(100, 50, 132)',
+                    pointBackgroundColor: 'rgb(100, 50, 132)',
+                    data: [columbia_to_g5],
+                },
+                {
+                    label: "Columbia to Galveston Dataset", 
+                    backgroundColor: 'rgb(50, 50, 132, 0.2)',
+                    borderColor: 'rgb(50, 50, 132)',
+                    pointBackgroundColor: 'rgb(50, 50, 132)',
+                    data: [columbia_to_galveston],
+                },
+                {
+                    label: "Columbia to GRC Dataset", 
+                    backgroundColor: 'rgb(900, 75, 132, 0.2)',
+                    borderColor: 'rgb(900, 75, 132)',
+                    pointBackgroundColor: 'rgb(900, 75, 132)',
+                    data: [columbia_to_grc],
+                },
+                {
+                    label: "Columbia to Old Mill Dataset", 
+                    backgroundColor: 'rgb(400, 50, 50, 0.2)',
+                    borderColor: 'rgb(400, 50, 50)',
+                    pointBackgroundColor: 'rgb(400, 50, 50)',
+                    data: [columbia_to_mill],
+                },
+                {
+                    label: "Columbia to OSU Cascades Dataset", 
+                    backgroundColor: 'rgb(80, 80, 132, 0.2)',
+                    borderColor: 'rgb(80, 80, 132)',
+                    pointBackgroundColor: 'rgb(80, 80, 132)',
+                    data: [columbia_to_osu],
+                },
+                {
+                    label: "Columbia to Ten Barrel Dataset", 
+                    backgroundColor: 'rgb(145, 50, 132, 0.2)',
+                    borderColor: 'rgb(145, 50, 132)',
+                    pointBackgroundColor: 'rgb(145, 50, 132)',
+                    data: [columbia_to_ten_barrel],
+                },
+            ],
+            
+        },
+    })
+}
 
 
 
+function displayGrcChart() {
+
+        var GrcChart = new Chart(ctx, {
+        type: 'radar',
+        // The data for our dataset
+        data: {
+            labels: ["GRC to Drake Park", "GRC to Columbia Simpson", "GRC to g5", "GRC to Galveston", "GRC to GRC", "GRC to Old Mill", "GRC to OSU Cascades", "GRC to TenBarrel"],
+            datasets: [
+                {
+                    label: "GRC to Columbia Simpson Dataset", 
+                    backgroundColor: 'rgb(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(225, 99, 132)',
+                    data: [grc_to_columbia],
+                },
+                {
+                    label: "GRC to Drake Park Dataset", 
+                    backgroundColor: 'rgb(200, 50, 50, 0.2)',
+                    borderColor: 'rgb(200, 50, 50)',
+                    pointBackgroundColor: 'rgb(200, 50, 50)',
+                    data: [grc_to_drake],
+                },
+                {
+                    label: "GRC to g5 Dataset", 
+                    backgroundColor: 'rgb(100, 50, 132, 0.2)',
+                    borderColor: 'rgb(100, 50, 132)',
+                    pointBackgroundColor: 'rgb(100, 50, 132)',
+                    data: [grc_to_g5],
+                },
+                {
+                    label: "GRC to Galveston Dataset", 
+                    backgroundColor: 'rgb(50, 50, 132, 0.2)',
+                    borderColor: 'rgb(50, 50, 132)',
+                    pointBackgroundColor: 'rgb(50, 50, 132)',
+                    data: [grc_to_galveston],
+                },
+                {
+                    label: "GRC to GRC Dataset", 
+                    backgroundColor: 'rgb(900, 75, 132, 0.2)',
+                    borderColor: 'rgb(900, 75, 132)',
+                    pointBackgroundColor: 'rgb(900, 75, 132)',
+                    data: [grc_to_grc],
+                },
+                {
+                    label: "GRC to Old Mill Dataset", 
+                    backgroundColor: 'rgb(400, 50, 50, 0.2)',
+                    borderColor: 'rgb(400, 50, 50)',
+                    pointBackgroundColor: 'rgb(400, 50, 50)',
+                    data: [grc_to_mill],
+                },
+                {
+                    label: "GRC to OSU Cascades Dataset", 
+                    backgroundColor: 'rgb(80, 80, 132, 0.2)',
+                    borderColor: 'rgb(80, 80, 132)',
+                    pointBackgroundColor: 'rgb(80, 80, 132)',
+                    data: [grc_to_osu],
+                },
+                {
+                    label: "GRC to Ten Barrel Dataset", 
+                    backgroundColor: 'rgb(145, 50, 132, 0.2)',
+                    borderColor: 'rgb(145, 50, 132)',
+                    pointBackgroundColor: 'rgb(145, 50, 132)',
+                    data: [grc_to_ten_barrel],
+                },
+            ],
+            
+        },
+    })
+}
 
 
+function displayDrakeChart() {
+    var DrakeChart = new Chart(ctx, {
+        type: 'radar',
+        // The data for our dataset
+        data: {
+            labels: ["Drake Park to Drake Park", "Drake to Columbia Simpson", "Drake to g5", "Drake to Galveston", "Drake to GRC", "Drake to Old Mill", "Drake to OSU Cascades", "Drake to TenBarrel"],
+            datasets: [
+                {
+                    label: "Drake to Columbia Simpson Dataset", 
+                    backgroundColor: 'rgb(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(225, 99, 132)',
+                    data: [drake_to_columbia],
+                },
+                {
+                    label: "Drake to Drake Park Dataset", 
+                    backgroundColor: 'rgb(200, 50, 50, 0.2)',
+                    borderColor: 'rgb(200, 50, 50)',
+                    pointBackgroundColor: 'rgb(200, 50, 50)',
+                    data: [drake_to_drake],
+                },
+                {
+                    label: "Drake to g5 Dataset", 
+                    backgroundColor: 'rgb(100, 50, 132, 0.2)',
+                    borderColor: 'rgb(100, 50, 132)',
+                    pointBackgroundColor: 'rgb(100, 50, 132)',
+                    data: [drake_to_g5],
+                },
+                {
+                    label: "Drake to Galveston Dataset", 
+                    backgroundColor: 'rgb(50, 50, 132, 0.2)',
+                    borderColor: 'rgb(50, 50, 132)',
+                    pointBackgroundColor: 'rgb(50, 50, 132)',
+                    data: [drake_to_galveston],
+                },
+                {
+                    label: "Drake to GRC Dataset", 
+                    backgroundColor: 'rgb(900, 75, 132, 0.2)',
+                    borderColor: 'rgb(900, 75, 132)',
+                    pointBackgroundColor: 'rgb(900, 75, 132)',
+                    data: [drake_to_grc],
+                },
+                {
+                    label: "Drake to Old Mill Dataset", 
+                    backgroundColor: 'rgb(400, 50, 50, 0.2)',
+                    borderColor: 'rgb(400, 50, 50)',
+                    pointBackgroundColor: 'rgb(400, 50, 50)',
+                    data: [drake_to_mill],
+                },
+                {
+                    label: "Drake to OSU Cascades Dataset", 
+                    backgroundColor: 'rgb(80, 80, 132, 0.2)',
+                    borderColor: 'rgb(80, 80, 132)',
+                    pointBackgroundColor: 'rgb(80, 80, 132)',
+                    data: [drake_to_osu],
+                },
+                {
+                    label: "Drake to Ten Barrel Dataset", 
+                    backgroundColor: 'rgb(145, 50, 132, 0.2)',
+                    borderColor: 'rgb(145, 50, 132)',
+                    pointBackgroundColor: 'rgb(145, 50, 132)',
+                    data: [drake_to_ten_barrel],
+                },
+            ],
+            
+        },
+    })
+}
+function displayG5Chart(){
+    var G5Chart = new Chart(ctx, {
+        type: 'radar',
+        // The data for our dataset
+        data: {
+            labels: ["G5 to Drake Park", "G5 to Columbia Simpson", "G5 to g5", "G5 to Galveston", "G5 to GRC", "G5 to Old Mill", "G5 to OSU Cascades", "G5 to TenBarrel"],
+            datasets: [
+                {
+                    label: "g5 to Columbia Simpson Dataset", 
+                    backgroundColor: 'rgb(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(225, 99, 132)',
+                    data: [g5_to_columbia],
+                },
+                {
+                    label: "g5 to Drake Park Dataset", 
+                    backgroundColor: 'rgb(200, 50, 50, 0.2)',
+                    borderColor: 'rgb(200, 50, 50)',
+                    pointBackgroundColor: 'rgb(200, 50, 50)',
+                    data: [g5_to_drake],
+                },
+                {
+                    label: "g5 to g5 Dataset", 
+                    backgroundColor: 'rgb(100, 50, 132, 0.2)',
+                    borderColor: 'rgb(100, 50, 132)',
+                    pointBackgroundColor: 'rgb(100, 50, 132)',
+                    data: [g5_to_g5],
+                },
+                {
+                    label: "g5 to Galveston Dataset", 
+                    backgroundColor: 'rgb(50, 50, 132, 0.2)',
+                    borderColor: 'rgb(50, 50, 132)',
+                    pointBackgroundColor: 'rgb(50, 50, 132)',
+                    data: [g5_to_galveston],
+                },
+                {
+                    label: "g5 to GRC Dataset", 
+                    backgroundColor: 'rgb(900, 75, 132, 0.2)',
+                    borderColor: 'rgb(900, 75, 132)',
+                    pointBackgroundColor: 'rgb(900, 75, 132)',
+                    data: [g5_to_grc],
+                },
+                {
+                    label: "g5 to Old Mill Dataset", 
+                    backgroundColor: 'rgb(400, 50, 50, 0.2)',
+                    borderColor: 'rgb(400, 50, 50)',
+                    pointBackgroundColor: 'rgb(400, 50, 50)',
+                    data: [g5_to_mill],
+                },
+                {
+                    label: "g5 to OSU Cascades Dataset", 
+                    backgroundColor: 'rgb(80, 80, 132, 0.2)',
+                    borderColor: 'rgb(80, 80, 132)',
+                    pointBackgroundColor: 'rgb(80, 80, 132)',
+                    data: [g5_to_osu],
+                },
+                {
+                    label: "g5 to Ten Barrel Dataset", 
+                    backgroundColor: 'rgb(145, 50, 132, 0.2)',
+                    borderColor: 'rgb(145, 50, 132)',
+                    pointBackgroundColor: 'rgb(145, 50, 132)',
+                    data: [g5_to_ten_barrel],
+                },
+            ],
+            
+        },
+    })
+}
+function displayGalvestonChart()  {
+    var GalvestonChart = new Chart(ctx, {
+        type: 'radar',
+        // The data for our dataset
+        data: {
+            labels: ["Galveston to Drake Park", "Galveston to Columbia Simpson", "Galveston to g5", "Galveston to Galveston", "Galveston to GRC", "Galveston to Old Mill", "Galveston to OSU Cascades", "Galveston to TenBarrel"],
+            datasets: [
+                {
+                    label: "Galveston to Columbia Simpson Dataset", 
+                    backgroundColor: 'rgb(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(225, 99, 132)',
+                    data: [galveston_to_columbia],
+                },
+                {
+                    label: "Galveston to Drake Park Dataset", 
+                    backgroundColor: 'rgb(200, 50, 50, 0.2)',
+                    borderColor: 'rgb(200, 50, 50)',
+                    pointBackgroundColor: 'rgb(200, 50, 50)',
+                    data: [galveston_to_drake],
+                },
+                {
+                    label: "Galveston to g5 Dataset", 
+                    backgroundColor: 'rgb(100, 50, 132, 0.2)',
+                    borderColor: 'rgb(100, 50, 132)',
+                    pointBackgroundColor: 'rgb(100, 50, 132)',
+                    data: [galveston_to_g5],
+                },
+                {
+                    label: "Galveston to Galveston Dataset", 
+                    backgroundColor: 'rgb(50, 50, 132, 0.2)',
+                    borderColor: 'rgb(50, 50, 132)',
+                    pointBackgroundColor: 'rgb(50, 50, 132)',
+                    data: [galveston_to_galveston],
+                },
+                {
+                    label: "Galveston to GRC Dataset", 
+                    backgroundColor: 'rgb(900, 75, 132, 0.2)',
+                    borderColor: 'rgb(900, 75, 132)',
+                    pointBackgroundColor: 'rgb(900, 75, 132)',
+                    data: [galveston_to_grc],
+                },
+                {
+                    label: "Galveston to Old Mill Dataset", 
+                    backgroundColor: 'rgb(400, 50, 50, 0.2)',
+                    borderColor: 'rgb(400, 50, 50)',
+                    pointBackgroundColor: 'rgb(400, 50, 50)',
+                    data: [galveston_to_mill],
+                },
+                {
+                    label: "Galveston to OSU Cascades Dataset", 
+                    backgroundColor: 'rgb(80, 80, 132, 0.2)',
+                    borderColor: 'rgb(80, 80, 132)',
+                    pointBackgroundColor: 'rgb(80, 80, 132)',
+                    data: [galveston_to_osu],
+                },
+                {
+                    label: "Galveston to Ten Barrel Dataset", 
+                    backgroundColor: 'rgb(145, 50, 132, 0.2)',
+                    borderColor: 'rgb(145, 50, 132)',
+                    pointBackgroundColor: 'rgb(145, 50, 132)',
+                    data: [galveston_to_ten_barrel],
+                },
+            ],
+            
+        },
+    })
+}
+function displayOldMillChart(){
+    var OldMillChart = new Chart(ctx, {
+        type: 'radar',
+        // The data for our dataset
+        data: {
+            labels: ["Old Mill to Drake Park", "Old Mill to Columbia Simpson", "Old Mill to g5", "Old Mill to Galveston", "Old Mill to GRC", "Old Mill to Old Mill", "Old Mill to OSU Cascades", "Old Mill to Ten Barrel"],
+            datasets: [
+                {
+                    label: "Old Mill to Columbia Simpson Dataset", 
+                    backgroundColor: 'rgb(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(225, 99, 132)',
+                    data: [old_mill_to_columbia],
+                },
+                {
+                    label: "Old Mill to Drake Park Dataset", 
+                    backgroundColor: 'rgb(200, 50, 50, 0.2)',
+                    borderColor: 'rgb(200, 50, 50)',
+                    pointBackgroundColor: 'rgb(200, 50, 50)',
+                    data: [old_mill_to_drake],
+                },
+                {
+                    label: "Old Mill to g5 Dataset", 
+                    backgroundColor: 'rgb(100, 50, 132, 0.2)',
+                    borderColor: 'rgb(100, 50, 132)',
+                    pointBackgroundColor: 'rgb(100, 50, 132)',
+                    data: [old_mill_to_g5],
+                },
+                {
+                    label: "Old Mill to Galveston Dataset", 
+                    backgroundColor: 'rgb(50, 50, 132, 0.2)',
+                    borderColor: 'rgb(50, 50, 132)',
+                    pointBackgroundColor: 'rgb(50, 50, 132)',
+                    data: [old_mill_to_galveston],
+                },
+                {
+                    label: "Old Mill to GRC Dataset", 
+                    backgroundColor: 'rgb(900, 75, 132, 0.2)',
+                    borderColor: 'rgb(900, 75, 132)',
+                    pointBackgroundColor: 'rgb(900, 75, 132)',
+                    data: [old_mill_to_grc],
+                },
+                {
+                    label: "Old Mill to Old Mill Dataset", 
+                    backgroundColor: 'rgb(400, 50, 50, 0.2)',
+                    borderColor: 'rgb(400, 50, 50)',
+                    pointBackgroundColor: 'rgb(400, 50, 50)',
+                    data: [old_mill_to_mill],
+                },
+                {
+                    label: "Old Mill to OSU Cascades Dataset", 
+                    backgroundColor: 'rgb(80, 80, 132, 0.2)',
+                    borderColor: 'rgb(80, 80, 132)',
+                    pointBackgroundColor: 'rgb(80, 80, 132)',
+                    data: [old_mill_to_osu],
+                },
+                {
+                    label: "Old Mill to Ten Barrel Dataset", 
+                    backgroundColor: 'rgb(145, 50, 132, 0.2)',
+                    borderColor: 'rgb(145, 50, 132)',
+                    pointBackgroundColor: 'rgb(145, 50, 132)',
+                    data: [old_mill_to_ten_barrel],
+                },
+            ],
+            
+        },
+    })
 
-
+}
+function displayOsuChart() {
+    var OsuChart = new Chart(ctx, {
+        type: 'radar',
+        // The data for our dataset
+        data: {
+            labels: ["OSU Cascades to Drake Park", "OSU Cascades to Columbia Simpson", "OSU Cascades to g5", "OSU Cascades to Galveston", "OSU Cascades to GRC", "OSU Cascades to Old Mill", "OSU Cascades to OSU Cascades", "OSU Cascades to Ten Barrel"],
+            datasets: [
+                {
+                    label: "OSU Cascades to Columbia Simpson Dataset", 
+                    backgroundColor: 'rgb(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(225, 99, 132)',
+                    data: [osu_to_columbia],
+                },
+                {
+                    label: "OSU Cascades to Drake Park Dataset", 
+                    backgroundColor: 'rgb(200, 50, 50, 0.2)',
+                    borderColor: 'rgb(200, 50, 50)',
+                    pointBackgroundColor: 'rgb(200, 50, 50)',
+                    data: [osu_to_drake],
+                },
+                {
+                    label: "OSU Cascades to g5 Dataset", 
+                    backgroundColor: 'rgb(100, 50, 132, 0.2)',
+                    borderColor: 'rgb(100, 50, 132)',
+                    pointBackgroundColor: 'rgb(100, 50, 132)',
+                    data: [osu_to_g5],
+                },
+                {
+                    label: "OSU Cascades to Galveston Dataset", 
+                    backgroundColor: 'rgb(50, 50, 132, 0.2)',
+                    borderColor: 'rgb(50, 50, 132)',
+                    pointBackgroundColor: 'rgb(50, 50, 132)',
+                    data: [osu_to_galveston],
+                },
+                {
+                    label: "OSU Cascades to GRC Dataset", 
+                    backgroundColor: 'rgb(900, 75, 132, 0.2)',
+                    borderColor: 'rgb(900, 75, 132)',
+                    pointBackgroundColor: 'rgb(900, 75, 132)',
+                    data: [osu_to_grc],
+                },
+                {
+                    label: "OSU Cascades to Old Mill Dataset", 
+                    backgroundColor: 'rgb(400, 50, 50, 0.2)',
+                    borderColor: 'rgb(400, 50, 50)',
+                    pointBackgroundColor: 'rgb(400, 50, 50)',
+                    data: [osu_to_mill],
+                },
+                {
+                    label: "OSU Cascades to OSU Cascades Dataset", 
+                    backgroundColor: 'rgb(80, 80, 132, 0.2)',
+                    borderColor: 'rgb(80, 80, 132)',
+                    pointBackgroundColor: 'rgb(80, 80, 132)',
+                    data: [osu_to_osu],
+                },
+                {
+                    label: "OSU Cascades to Ten Barrel Dataset", 
+                    backgroundColor: 'rgb(145, 50, 132, 0.2)',
+                    borderColor: 'rgb(145, 50, 132)',
+                    pointBackgroundColor: 'rgb(145, 50, 132)',
+                    data: [osu_to_ten_barrel],
+                },
+            ],
+            
+        },
+    })
+}
+function displayTenBarrelChart() {
+    var TenBarrelChart = new Chart(ctx, {
+        type: 'radar',
+        // The data for our dataset
+        data: {
+            labels: ["Ten Barrel to Drake Park", "Ten Barrel to Columbia Simpson", "Ten Barrel to g5", "Ten Barrel to Galveston", "Ten Barrel to GRC", "Ten Barrel to Old Mill", "Ten Barrel to OSU Cascades", "Ten Barrel to Ten Barrel"],
+            datasets: [
+                {
+                    label: "Ten Barrel to Columbia Simpson Dataset", 
+                    backgroundColor: 'rgb(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(225, 99, 132)',
+                    data: [0,10,5,],
+                },
+                {
+                    label: "Ten Barrel to Drake Park Dataset", 
+                    backgroundColor: 'rgb(200, 50, 50, 0.2)',
+                    borderColor: 'rgb(200, 50, 50)',
+                    pointBackgroundColor: 'rgb(200, 50, 50)',
+                    data: [0,0,015,43,],
+                },
+                {
+                    label: "Ten Barrel to g5 Dataset", 
+                    backgroundColor: 'rgb(100, 50, 132, 0.2)',
+                    borderColor: 'rgb(100, 50, 132)',
+                    pointBackgroundColor: 'rgb(100, 50, 132)',
+                    data: [0,5,19,],
+                },
+                {
+                    label: "Ten Barrel to Galveston Dataset", 
+                    backgroundColor: 'rgb(50, 50, 132, 0.2)',
+                    borderColor: 'rgb(50, 50, 132)',
+                    pointBackgroundColor: 'rgb(50, 50, 132)',
+                    data: [24,],
+                },
+                {
+                    label: "Ten Barrel to GRC Dataset", 
+                    backgroundColor: 'rgb(900, 75, 132, 0.2)',
+                    borderColor: 'rgb(900, 75, 132)',
+                    pointBackgroundColor: 'rgb(900, 75, 132)',
+                    data: [11, 54, 23, ],
+                },
+                {
+                    label: "Ten Barrel to Old Mill Dataset", 
+                    backgroundColor: 'rgb(400, 50, 50, 0.2)',
+                    borderColor: 'rgb(400, 50, 50)',
+                    pointBackgroundColor: 'rgb(400, 50, 50)',
+                    data: [45, 6, 19],
+                },
+                {
+                    label: "Ten Barrel to OSU Cascades Dataset", 
+                    backgroundColor: 'rgb(80, 80, 132, 0.2)',
+                    borderColor: 'rgb(80, 80, 132)',
+                    pointBackgroundColor: 'rgb(80, 80, 132)',
+                    data: [13, 45,22],
+                },
+                {
+                    label: "Ten Barrel to Ten Barrel Dataset", 
+                    backgroundColor: 'rgb(145, 50, 132, 0.2)',
+                    borderColor: 'rgb(145, 50, 132)',
+                    pointBackgroundColor: 'rgb(145, 50, 132)',
+                    data: [ten_barrel_to_ten_barrel],
+                },
+            ],
+            
+        },
+    });
+}
