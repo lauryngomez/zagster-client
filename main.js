@@ -175,15 +175,11 @@ function saveGrcToTenBarrel(data){
 
 
 //Columbia Simpson
-function saveColumbiaToG5() {
-    $.getJSON(BASE_URL + "/rides/count/from/columbia_simpson/to/g5", saveColumbiaToG5);
-}
+
 function saveColumbiaToG5(data){
     columbia_to_g5 = data.count;
 }
-function saveColumbiaToDrake() {
-    $.getJSON(BASE_URL + "/rides/count/from/columbia_simpson/to/drake_park", saveColumbiaToDrake);
-}
+
 function saveColumbiaToDrake(data){
     columbia_to_drake = data.count;
 }
@@ -531,29 +527,30 @@ function displayChart() {
     var myChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ["Columbia/Simpson", "Drake Park", "Galveston", "G5", "GRC", "Old Mill", "OSU", "Ten Barrel"],
-            datasets: [{
-                label: 'From GRC',
-                data: [grc_to_columbia, grc_to_drake, grc_to_g5, grc_to_galveston, grc_to_grc, grc_to_mill, grc_to_osu, grc_to_ten_barrel,],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-            
+            labels: ["Columbia Simpson", "Drake Park", "G5", "Galveston", "GRC", "Old Mill", "OSU", "Ten Barrel"],
+            datasets: [
+                {
+                    label: 'From GRC',
+                    data: [grc_to_columbia, grc_to_drake, grc_to_g5, grc_to_galveston, grc_to_grc, grc_to_mill, grc_to_osu, grc_to_ten_barrel,],
+                    backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+                    borderColor: ['rgba(255,99,132,1)'],
+                    borderWidth: 1
+                },
+                {
+                    label: 'From Columbia Simpson',
+                    data: [columbia_to_columbia, columbia_to_drake, columbia_to_g5, columbia_to_galveston, columbia_to_grc, columbia_to_mill, columbia_to_osu, columbia_to_ten_barrel,],
+                    backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+                    borderColor: ['rgba(54, 162, 235, 1)'],
+                    borderWidth: 1
+                },
+                {
+                    label: 'From Drake Simpson',
+                    data: [drake_to_columbia, drake_to_drake, drake_to_g5, drake_to_galveston, drake_to_grc, drake_to_mill, drake_to_osu, drake_to_ten_barrel,],
+                    backgroundColor: ['rgba(255, 206, 86, 0.2)',],
+                    borderColor: ['rgba(255, 206, 86, 0.2)',],
+                    borderWidth: 1
+                }
+            ] 
         },
         options: {
             scales: {
@@ -565,72 +562,5 @@ function displayChart() {
             }
         }
     });
-    // var ctx = document.getElementById("ColumbiaChart").getContext('2d');
-    // var GrcChart = new Chart(ctx, {
-    // type: 'radar',
-    // // The data for our dataset
-    // data: {
-    //     labels: ["GRC to Drake Park", "GRC to Columbia Simpson", "GRC to g5", "GRC to Galveston", "GRC to GRC", "GRC to Old Mill", "GRC to OSU Cascades", "GRC to TenBarrel"],
-    //     datasets: [
-    //         {
-    //             label: "GRC to Columbia Simpson Dataset", 
-    //             backgroundColor: 'rgb(255, 99, 132, 0.2)',
-    //             borderColor: 'rgb(255, 99, 132)',
-    //             pointBackgroundColor: 'rgb(225, 99, 132)',
-    //             data: [grc_to_columbia],
-    //         },
-    //         {
-    //             label: "GRC to Drake Park Dataset", 
-    //             backgroundColor: 'rgb(200, 50, 50, 0.2)',
-    //             borderColor: 'rgb(200, 50, 50)',
-    //             pointBackgroundColor: 'rgb(200, 50, 50)',
-    //             data: [grc_to_drake],
-    //         },
-    //         {
-    //             label: "GRC to g5 Dataset", 
-    //             backgroundColor: 'rgb(100, 50, 132, 0.2)',
-    //             borderColor: 'rgb(100, 50, 132)',
-    //             pointBackgroundColor: 'rgb(100, 50, 132)',
-    //             data: [grc_to_g5],
-    //         },
-    //         {
-    //             label: "GRC to Galveston Dataset", 
-    //             backgroundColor: 'rgb(50, 50, 132, 0.2)',
-    //             borderColor: 'rgb(50, 50, 132)',
-    //             pointBackgroundColor: 'rgb(50, 50, 132)',
-    //             data: [grc_to_galveston],
-    //         },
-    //         {
-    //             label: "GRC to GRC Dataset", 
-    //             backgroundColor: 'rgb(900, 75, 132, 0.2)',
-    //             borderColor: 'rgb(900, 75, 132)',
-    //             pointBackgroundColor: 'rgb(900, 75, 132)',
-    //             data: [grc_to_grc],
-    //         },
-    //         {
-    //             label: "GRC to Old Mill Dataset", 
-    //             backgroundColor: 'rgb(400, 50, 50, 0.2)',
-    //             borderColor: 'rgb(400, 50, 50)',
-    //             pointBackgroundColor: 'rgb(400, 50, 50)',
-    //             data: [grc_to_mill],
-    //         },
-    //         {
-    //             label: "GRC to OSU Cascades Dataset", 
-    //             backgroundColor: 'rgb(80, 80, 132, 0.2)',
-    //             borderColor: 'rgb(80, 80, 132)',
-    //             pointBackgroundColor: 'rgb(80, 80, 132)',
-    //             data: [grc_to_osu],
-    //         },
-    //         {
-    //             label: "GRC to Ten Barrel Dataset", 
-    //             backgroundColor: 'rgb(145, 50, 132, 0.2)',
-    //             borderColor: 'rgb(145, 50, 132)',
-    //             pointBackgroundColor: 'rgb(145, 50, 132)',
-    //             data: [grc_to_ten_barrel],
-    //         },
-    //     ],
-        
-    // },
-    // })
 }
 
