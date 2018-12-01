@@ -544,10 +544,52 @@ function displayChart() {
                     borderWidth: 1
                 },
                 {
-                    label: 'From Drake Simpson',
+                    label: 'From Drake Park',
                     data: [drake_to_columbia, drake_to_drake, drake_to_g5, drake_to_galveston, drake_to_grc, drake_to_mill, drake_to_osu, drake_to_ten_barrel,],
                     backgroundColor: ['rgba(255, 206, 86, 0.2)',],
-                    borderColor: ['rgba(255, 206, 86, 0.2)',],
+                    borderColor: ['rgba(255, 206, 86, 1)',],
+                    borderWidth: 1
+                },
+                {
+                    label: 'From G5',
+                    data: [g5_to_columbia, g5_to_drake, g5_to_g5, g5_to_galveston, g5_to_grc, g5_to_mill, g5_to_osu, g5_to_ten_barrel,],
+                    backgroundColor: ['rgba(75, 192, 192, 0.2)',],
+                    borderColor: ['rgba(75, 192, 192, 1)',],
+                    borderWidth: 1
+                },
+                {
+                    label: 'From Galveston',
+                    data: [galveston_to_columbia, galveston_to_drake, galveston_to_g5, galveston_to_galveston, galveston_to_grc, galveston_to_mill, galveston_to_osu, galveston_to_ten_barrel,],
+                    backgroundColor: ['rgba(153, 102, 255, 0.2)',],
+                    borderColor: ['rgba(153, 102, 255, 1)',],
+                    borderWidth: 1
+                },
+                {
+                    label: 'From GRC',
+                    data: [grc_to_columbia, grc_to_drake, grc_to_g5, grc_to_galveston, grc_to_grc, grc_to_mill, grc_to_osu, grc_to_ten_barrel,],
+                    backgroundColor: ['rgba(255, 159, 64, 0.2)'],
+                    borderColor: ['rgba(255, 159, 64, 1)'],
+                    borderWidth: 1
+                },
+                {
+                    label: 'From Old Mill',
+                    data: [old_mill_to_columbia, old_mill_to_drake, old_mill_to_g5, old_mill_to_galveston, old_mill_to_grc, old_mill_to_mill, old_mill_to_osu, old_mill_to_ten_barrel,],
+                    backgroundColor: ['rgba(255, 159, 64, 0.2)'],
+                    borderColor: ['rgba(255, 159, 64, 1)'],
+                    borderWidth: 1
+                },
+                {
+                    label: 'From OSU Cascades',
+                    data: [osu_to_columbia, osu_to_drake, osu_to_g5, osu_to_galveston, osu_to_grc, osu_to_mill, osu_to_osu, osu_to_ten_barrel,],
+                    backgroundColor: ['rgba(255, 159, 64, 0.2)'],
+                    borderColor: ['rgba(255, 159, 64, 1)'],
+                    borderWidth: 1
+                },
+                {
+                    label: 'From Ten Barrel',
+                    data: [ten_barrel_to_columbia, ten_barrel_to_drake, ten_barrel_to_g5, ten_barrel_to_galveston, ten_barrel_to_grc, ten_barrel_to_mill, ten_barrel_to_osu, ten_barrel_to_ten_barrel,],
+                    backgroundColor: ['rgba(255, 159, 64, 0.2)'],
+                    borderColor: ['rgba(255, 159, 64, 1)'],
                     borderWidth: 1
                 }
             ] 
